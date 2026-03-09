@@ -1,10 +1,16 @@
 function openEnvelope(){
 
-document.getElementById("envelope").style.display="none";
+document.getElementById("envelope").style.transform="scale(0)";
+
+setTimeout(function(){
 
 document.getElementById("baby").style.display="block";
 
+},400);
+
 }
+
+
 
 const countdown = document.getElementById("countdown");
 
@@ -26,3 +32,23 @@ hours + " horas " +
 minutes + " minutos";
 
 },1000);
+
+
+
+const elements = document.querySelectorAll(".reveal-on-scroll");
+
+window.addEventListener("scroll", () => {
+
+elements.forEach(el => {
+
+const top = el.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+
+el.classList.add("active");
+
+}
+
+});
+
+});
